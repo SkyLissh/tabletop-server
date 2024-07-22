@@ -8,10 +8,11 @@
     "node": ">= 16.13.0"
   },
   "scripts": {
-    "start": "bun --hot src/index.ts | pino-pretty",
+    "dev": "bun --hot src/index.ts | pino-pretty",
+    "start": "NODE_ENV=production bun src/index.ts",
     "loadtest": "bun loadtest/example.ts --room my_room --numClients 2",
-    "build": "bun run clean && bun build --compile --minify --sourcemap ./src/index.ts --outdir ./server",
-    "clean": "rimraf server",
+    "build": "bun run clean && bun build --minify --sourcemap --target bun ./src/index.ts --outdir ./build",
+    "clean": "rimraf build",
     "test": "mocha -r tsx test/**_test.ts --exit --timeout 15000"
   },
   "author": "",
