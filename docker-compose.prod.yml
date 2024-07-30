@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    image: tabletop:latest
+    container_name: tabletop
+    build:
+      target: release
+      context: .
+      dockerfile: Dockerfile
+    command: bun run start
+    expose:
+      - "2567"
+    env_file:
+      - .env
+    restart: always

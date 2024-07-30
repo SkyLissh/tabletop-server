@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  app:
+    image: tabletop:dev
+    container_name: tabletop
+    build:
+      target: release
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: bun run dev
+    expose:
+      - "2567"
+    env_file:
+      - .env
