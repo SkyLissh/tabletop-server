@@ -47,5 +47,8 @@
   },
   "peerDependencies": {
     "typescript": "^5.0.4"
+  },
+  "overrides": {
+    "msgpackr-extract": "3.0.2"
   }
 }
