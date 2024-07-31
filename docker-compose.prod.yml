@@ -7,8 +7,8 @@ services:
       context: .
       dockerfile: Dockerfile
     command: bun run start
-    expose:
-      - "2567"
+    ports:
+      - 2567:2567
     env_file:
       - .env
     restart: always
